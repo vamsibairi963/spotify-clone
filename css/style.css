@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --a: 0;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+}
+
+.left {
+    width: 25vw;
+    height: 100vh;
+}
+
+.right {
+    width: 75vw;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+}
+
+.home ul li {
+    width: 15px;
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-left: 5px;
+
+}
+
+.library {
+
+    min-height: 90vh;
+    position: relative;
+}
+
+.heading {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-top: 14px;
+    font-size: 13px;
+    height: 70px;
+
+}
+
+.heading img {
+    width: 25px;
+}
+
+.footer {
+    display: flex;
+    gap: 20px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+
+
+
+}
+
+.footer a {
+    color: grey;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #121212;
+    margin-top: 8px;
+    height: 75px;
+    align-items: center;
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.spotifyPlaylists {
+    margin: 10px;
+    margin-top: 5px;
+
+}
+
+.spotifyPlaylists h1 {
+    padding: 5px;
+}
+
+.cardContainer {
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 80vh;
+
+
+
+
+}
+
+.card {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    cursor: pointer;
+
+}
+
+.card:hover {
+    background-color: #333131;
+    transition: all 0.5s;
+    --a: 1;
+}
+
+.card>* {
+    margin-top: 5px;
+
+}
+
+.card .coverPic {
+    position: relative;
+}
+
+.card .playbtn {
+    width: 40px;
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    opacity: var(--a);
+    transition: 1s ease-out;
+    cursor: pointer;
+}
+
+.spotifyPlaylists img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.buttons>* {
+    margin: 7px;
+}
+
+.signupbtn {
+    background-color: #121212;
+    color: grey;
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+}
+
+.signupbtn:hover {
+    font-size: 0.90rem;
+    color: white;
+}
+
+.loginbtn {
+    background-color: white;
+    color: black;
+    width: 80px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.loginbtn:hover {
+    font-size: 0.90rem;
+    color: rgb(15, 2, 2);
+}
+
+.playbar {
+
+    background-color: rgb(47 42 42);
+    color: rgb(240, 240, 240);
+    position: fixed;
+    bottom: 0px;
+    width: 73%;
+    border-radius: 15px;
+    padding: 8px;
+    min-height: 111px;
+    text-align: center;
+}
+
+.songinfo {
+    display: flex;
+    align-items: center;
+}
+
+.playbar .media-btns img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.media-btns {
+    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+}
+
+.seekbar {
+    height: 8px;
+    background-color: #18f5ff;
+    width: 96%;
+    position: absolute;
+    bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.playbar .circle {
+    width: 12px;
+    height: 12px;
+    background: #f6f6f6;
+    border-radius: 10px;
+    position: relative;
+    left: -2.3px;
+    bottom: 2.3px;
+    cursor: pointer;
+    transition: left 0.5s;
+}
+
+.playbar .circle:hover {
+    transform: scale(1.5);
+    transition: 0.5s;
+}
+
+.songList {
+    height: 530px;
+    overflow: auto;
+    margin-bottom: 40px;
+
+}
+
+.songList ul {
+    /* padding: 3px 42px; */
+
+    list-style-type: none;
+    margin: 5px 2px;
+    padding: 10px 5px;
+    overflow: hidden;
+    word-wrap: break-word;
+    box-sizing: border-box;
+
+
+}
+
+.songList ul li {
+    list-style-type: none;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 10px 0px;
+    padding: 15px 4px;
+    cursor: pointer;
+}
+
+
+.songlist li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Pushes items to the edges */
+    gap: 12px;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.songList ul li img {
+    width: 17px;
+
+}
+
+
+
+.play-action {
+    display: flex;
+    gap: 2px;
+}
+
+.play-action span {
+    width: 46px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.play-action img {
+    width: 18px;
+    cursor: pointer;
+}
+
+
+.info {
+    display: flex;
+    gap: 5px;
+}
+
+
+
+
+.play-action img:hover {
+    transform: scale(1.2);
+    transition: 0.1s ease-in-out;
+}
+
+.abovebar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 32px 0px;
+}
+
+.hamburger {
+    display: none;
+
+}
+
+.close img {
+    display: none;
+}
+
+
+
+:root {
+    --orange-color: #d05700;
+    --track-color: #434343;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, var(--orange-color) var(--value-percent, 0%), var(--track-color) var(--value-percent, 0%));
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -4px;
+    height: 16px;
+    width: 16px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 1px solid var(--orange-color);
+}
+
+.timenvol {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+
+}
+
+.volume img {
+    width: 30px;
+    height: 30px;
+
+}
+
+.downarrow {
+    display: none;
+}
+
+@media (min-width: 850px) and (max-width: 1250px) {
+
+
+    .left {
+        position: absolute;
+        left: -120%;
+        transition: all .4s;
+        z-index: 1;
+        width: 390px;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: calc(100vw - 40px);
+        margin: 0px 5px;
+
+    }
+
+
+
+    .seekbar {
+        width: calc(100vw - 35px);
+    }
+
+    .downarrow {
+        height: 4px;
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        cursor: pointer;
+        display: block;
+
+
+    }
+
+
+    .hamburger {
+        display: block;
+        position: relative;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    .spotifyPlaylists {
+        margin-right: 0;
+    }
+
+    .spotifyPlaylists h1 {
+        padding: 15px;
+    }
+
+    .close img {
+
+        width: 30px;
+        height: 35px;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        display: block;
+    }
+
+    .cardContainer {
+        margin: 10px;
+        justify-content: center;
+        gap: 20px;
+
+    }
+
+    .card {
+        width: 45vw;
+    }
+
+    .abovebar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .playbar .media-btns img {
+        width: 50px;
+    }
+
+    .timenvol {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+}
+
+@media (max-width : 849px) {
+
+
+    .left {
+        position: absolute;
+        left: -110%;
+        transition: all .4s;
+        z-index: 1;
+        width: 360px;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: calc(100vw - 30px);
+        margin: 0px 5px;
+
+    }
+
+
+
+    .seekbar {
+        width: calc(100vw - 30px);
+    }
+
+    .downarrow {
+        height: 4px;
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        cursor: pointer;
+        display: block;
+
+
+    }
+
+
+    .hamburger {
+        display: block;
+        position: relative;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    .spotifyPlaylists {
+        margin-right: 0;
+    }
+
+    .spotifyPlaylists h1 {
+        padding: 15px;
+    }
+
+    .close img {
+
+        width: 30px;
+        height: 35px;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        display: block;
+    }
+
+    .cardContainer {
+        margin: 10px;
+        justify-content: center;
+        gap: 10px;
+
+    }
+
+    .card {
+        width: 85vw;
+    }
+
+    .abovebar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .playbar .media-btns img {
+        width: 50px;
+    }
+
+    .timenvol {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+}
