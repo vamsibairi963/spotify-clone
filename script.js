@@ -19,7 +19,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`http://10.191.221.170:5001/${folder}/`);
+    let a = await fetch(`/${folder}/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -93,7 +93,7 @@ allRanges.forEach(range => {
 });
 
 async function displayAlbums() {
-    let a = await fetch(`http://10.191.221.170:5001/songs/`);
+    let a = await fetch(`/songs/`);
     let cardContainer = document.querySelector(".cardContainer");
     let response = await a.text();
     let div = document.createElement("div");
@@ -111,7 +111,7 @@ async function displayAlbums() {
         if (a.includes("/songs")) {
             let folder = a.split("/").slice(-2)[0]
             // Get the meta data of the folder
-            let ab = await fetch(`http://10.191.221.170:5001/songs/${folder}/info.json`);
+            let ab = await fetch(`/songs/${folder}/info.json`);
             let response = await ab.json();
             console.log(response)
 
