@@ -1,0 +1,142 @@
+{
+  "albums": [
+    {
+      "folder": "Arya 2",
+      "title": "Arya 2",
+      "description": "Hits from Arya 2",
+      "songs": [
+        "Mr. Perfect.mp3",
+        "My Love Is Gone.mp3",
+        "Karige Loga.mp3",
+        "Uppenantha E Prema Ki.mp3"
+      ]
+    },
+    {
+      "folder": "Bollywood picks",
+      "title": "Bollywood Picks",
+      "description": "A selection of Bollywood hits",
+      "songs": [
+        "Aaj Ki Raat.mp3",
+        "Akhiyaan Gulaab.mp3",
+        "Dilbar.mp3",
+        "Humnava Mere.mp3",
+        "Lut Gaye.mp3",
+        "Meri Jaan Meri Jaan.mp3",
+        "Tujh Mein Rab Dikhta Hai.mp3"
+      ]
+    },
+    {
+      "folder": "cs",
+      "title": "CS Playlist",
+      "description": "Top tracks for coding",
+      "songs": [
+        "Emitemitemo.mp3",
+        "Madhurame E Kshaname.mp3",
+        "Nuvvunte.mp3",
+        "Saiyaara Reprise Female.mp3",
+        "Uppenantha.mp3"
+      ]
+    },
+    {
+      "folder": "ncs",
+      "title": "NCS Hits",
+      "description": "NoCopyrightSounds favorites",
+      "songs": [
+        "By Myself - The Grey Room - Copy.mp3",
+        "Claim To Fame - The Grey Room - C.mp3",
+        "Down The Rabbit Hole - The Grey R....mp3",
+        "Futile - The Grey Room - Copy.mp3",
+        "In The Morning - The Grey Room.mp3",
+        "On The Flip - The Grey Room - Copy.mp3"
+      ]
+    },
+    {
+      "folder": "Prabhas Hits",
+      "title": "Prabhas Hits",
+      "description": "Best of Prabhas",
+      "songs": [
+        "Darlingey.mp3",
+        "Ek Niranjan.mp3",
+        "Idhedho Bagundhe.mp3",
+        "Light Theesko.mp3",
+        "Mahammari.mp3",
+        "Nachave Nizam Pori.mp3",
+        "Oororo Yogi.mp3"
+      ]
+    },
+    {
+      "folder": "Pushpa",
+      "title": "Pushpa",
+      "description": "Soundtrack from Pushpa",
+      "songs": [
+        "Eyy Bidda Idhi Naa Adda - Pushpa -....mp3",
+        "Kissik Telugu.mp3",
+        "Oo Antava Oo Oo Antava - Pushpa -....mp3",
+        "Peelings Telugu.mp3",
+        "Pushpa Pushpa Telugu.mp3",
+        "Sooseki.mp3",
+        "Srivalli - Pushpa - The Rise.mp3"
+      ]
+    },
+    {
+      "folder": "Saiyara",
+      "title": "Saiyara",
+      "description": "Melodious tracks",
+      "songs": [
+        "Barbaad Reprise Female.mp3",
+        "Barbaad.mp3",
+        "Dhun.mp3",
+        "Humsafar.mp3",
+        "Saiyaara Reprise Female.mp3",
+        "Saiyaara.mp3",
+        "Tum Ho Toh.mp3"
+      ]
+    },
+    {
+      "folder": "Salaar",
+      "title": "Salaar",
+      "description": "Music from Salaar",
+      "songs": [
+        "Prathi Gaadhalo From Salaar Cease....mp3",
+        "Salaar Cease Fire Telugu.mp3",
+        "Salear-Final Punch From Salaar.mp3",
+        "Sound of Salaar From Salaar.mp3",
+        "Sooreede From Salaar Cease Fire.mp3",
+        "Vinaraa From Salaar Cease Fire.mp3"
+      ]
+    },
+    {
+      "folder": "Saripodhaa Sanivaaram",
+      "title": "Saripodhaa Sanivaaram",
+      "description": "Music from the movie",
+      "songs": [
+        "Bhaga Bhaga.mp3",
+        "Dimbhaka.mp3",
+        "Garam Garam.mp3",
+        "Laalijo Raagam.mp3",
+        "Malupero.mp3",
+        "Not A Teaser.mp3",
+        "Sa Ri Ma Pa.mp3",
+        "Samavarthi.mp3",
+        "Shiva Thandavame Trailer.mp3",
+        "Ullaasam.mp3",
+        "Unchained.mp3",
+        "Veta Vinodham.mp3"
+      ]
+    },
+    {
+      "folder": "They Call Him OG",
+      "title": "They Call Him OG",
+      "description": "Soundtrack from the OG",
+      "songs": [
+        "Firestorm.mp3",
+        "Guns and Roses.mp3",
+        "Hungry Cheetah.mp3",
+        "Kiss Kiss Bang Bang From They Call....mp3",
+        "Suvvi Suvvi.mp3",
+        "Trance of Omi.mp3",
+        "Washi Yo Washi.mp3"
+      ]
+    }
+  ]
+}
