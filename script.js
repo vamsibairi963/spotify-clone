@@ -2,7 +2,7 @@ console.log("Lets write JavaScript..")
 let currentSong = new Audio();
 let songs = [];
 let currFolder;
-let musicLibrary; // NEW: To store all our music data
+let musicLibrary; // To store all our music data
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) seconds = 0;
@@ -15,18 +15,15 @@ function secondsToMinutesSeconds(seconds) {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 }
 
-// CHANGED: This function no longer fetches anything. It just reads our library.
 function getSongs(folder) {
     currFolder = folder;
-    // Find the album in our musicLibrary that matches the folder name
     const album = musicLibrary.albums.find(a => a.folder === folder);
     if (!album) {
         console.error("Album not found!");
         return [];
     }
-    songs = album.songs; // Get the songs from the found album
+    songs = album.songs;
 
-    // Display the songs in the playlist
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = "";
     for (const song of songs) {
@@ -42,7 +39,6 @@ function getSongs(folder) {
         </li>`;
     }
 
-    // Attach event listener to each song
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", () => {
             playMusic(e.querySelector(".info").lastElementChild.innerHTML + ".mp3");
@@ -53,7 +49,6 @@ function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-    // This function was already correct! It builds the path perfectly.
     currentSong.src = `/songs/${currFolder}/${track}`;
     if (!pause) {
         currentSong.play();
@@ -63,10 +58,15 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
 
-// CHANGED: This now fetches our single info.json file
+// This is the helper function that connects your JS to your CSS
+function updateSliderStyle(slider) {
+    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.setProperty('--value-percent', `${value}%`);
+}
+
 async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer");
-    cardContainer.innerHTML = ""; // Clear existing cards
+    cardContainer.innerHTML = "";
 
     for (const album of musicLibrary.albums) {
         cardContainer.innerHTML += `<div data-folder="${album.folder}" class="card bg-grey">
@@ -79,7 +79,6 @@ async function displayAlbums() {
         </div>`;
     }
 
-    // CHANGED: Load the playlist when a card is clicked
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", item => {
             const folder = item.currentTarget.dataset.folder;
@@ -91,25 +90,24 @@ async function displayAlbums() {
     });
 }
 
-
 async function main() {
-    // NEW: Fetch our entire music library ONCE at the start
     let response = await fetch(`/songs/info.json`);
     musicLibrary = await response.json();
 
-    // Load the first album's songs by default
     if (musicLibrary.albums.length > 0) {
         const firstAlbumFolder = musicLibrary.albums[0].folder;
         songs = getSongs(firstAlbumFolder);
         playMusic(songs[0], true);
     }
     
-    // Display all albums on the page
     await displayAlbums();
 
-    // --- ALL YOUR OTHER EVENT LISTENERS CAN STAY EXACTLY THE SAME ---
-    // They are well-written and don't need to be changed.
-    // (play, pause, next, previous, seekbar, volume, hamburger, etc.)
+    // Set the initial visual state of the volume slider when the page loads
+    const volumeSlider = document.querySelector(".range input");
+    updateSliderStyle(volumeSlider);
+
+
+    // --- EVENT LISTENERS ---
 
     play.addEventListener("click", () => {
         if (currentSong.paused) {
@@ -159,20 +157,24 @@ async function main() {
         }
     });
 
-    document.querySelector(".range input").addEventListener("change", (e) => {
+    // MODIFIED: "change" is now "input" for smooth, real-time updates
+    document.querySelector(".range input").addEventListener("input", (e) => {
         currentSong.volume = parseInt(e.target.value) / 100;
+        updateSliderStyle(e.target);
     });
 
     document.querySelector(".volume>img").addEventListener("click", e => {
+        const volumeSlider = document.querySelector(".range input");
         if (e.target.src.includes("img/volume.svg")) {
             e.target.src = e.target.src.replace("img/volume.svg", "img/mute.svg");
             currentSong.volume = 0;
-            document.querySelector(".range input").value = 0;
+            volumeSlider.value = 0;
         } else {
             e.target.src = e.target.src.replace("img/mute.svg", "img/volume.svg");
             currentSong.volume = 0.25;
-            document.querySelector(".range input").value = 25;
+            volumeSlider.value = 25;
         }
+        updateSliderStyle(volumeSlider);
     });
 }
 
