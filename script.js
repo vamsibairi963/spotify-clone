@@ -99,7 +99,7 @@ async function main() {
         songs = getSongs(firstAlbumFolder);
         playMusic(songs[0], true);
     }
-    
+
     await displayAlbums();
 
     // Set the initial visual state of the volume slider when the page loads
@@ -161,6 +161,12 @@ async function main() {
     document.querySelector(".range input").addEventListener("input", (e) => {
         currentSong.volume = parseInt(e.target.value) / 100;
         updateSliderStyle(e.target);
+        if (currentSong.volume > 0) {
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("img/mute.svg", "img/volume.svg")
+        } else {
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("img/volume.svg", "img/mute.svg")
+        }
+
     });
 
     document.querySelector(".volume>img").addEventListener("click", e => {
@@ -176,6 +182,36 @@ async function main() {
         }
         updateSliderStyle(volumeSlider);
     });
+    document.getElementById("downarrow").addEventListener("click", e => {
+        console.log("down arrow is clicked")
+
+        let arrowImage = document.querySelector("#downarrow img");
+        let aboveBar = document.getElementsByClassName("abovebar")[0];
+        let mediaButtons = document.querySelector(".media-btns")
+        if (arrowImage.src.includes("downarrow.svg")) {
+            // If it's the down arrow, change to the up arrow and apply styles
+            arrowImage.src = "img/abovearrow.svg";
+            aboveBar.style.gap = "2px";
+            aboveBar.style.marginBottom = "20px";
+            aboveBar.style.marginTop = "0";
+            mediaButtons.style.marginBottom = "0";
+            document.querySelector(".timenvol").style.flexDirection = "row";
+            document.querySelector(".cardContainer").style.marginBottom = "12vh";
+
+        }else{
+            arrowImage.src = "img/downarrow.svg";
+            aboveBar.style.gap = "20px";
+            aboveBar.style.margin = "32px 0px";
+            
+            mediaButtons.style.marginBottom = "12px";
+            document.querySelector(".timenvol").style.flexDirection = "column";
+            document.querySelector(".cardContainer").style.marginBottom = "30vh";
+        }
+
+        
+
+
+    })
 }
 
 main();
