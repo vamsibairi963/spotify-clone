@@ -196,7 +196,7 @@ async function main() {
             aboveBar.style.marginTop = "0";
             mediaButtons.style.marginBottom = "0";
             document.querySelector(".timenvol").style.flexDirection = "row";
-            document.querySelector(".cardContainer").style.marginBottom = "12vh";
+            document.querySelector(".cardContainer").style.marginBottom = "40px";
 
         }else{
             arrowImage.src = "img/downarrow.svg";
@@ -205,7 +205,7 @@ async function main() {
             
             mediaButtons.style.marginBottom = "12px";
             document.querySelector(".timenvol").style.flexDirection = "column";
-            document.querySelector(".cardContainer").style.marginBottom = "30vh";
+            document.querySelector(".cardContainer").style.marginBottom = "100px";
         }
 
         
